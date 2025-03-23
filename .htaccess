@@ -1,0 +1,20 @@
+# Enable Passenger
+PassengerEnabled on
+PassengerAppType wsgi
+PassengerStartupFile passenger_wsgi.py
+PassengerPython /home/fooladra/virtualenv/public_html/apps/BasicPython/3.9/bin/python3
+
+# Basic Options
+Options -Indexes
+DirectoryIndex disabled
+
+# Handle static files
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico)$">
+    PassengerEnabled off
+</FilesMatch>
+
+# URL Rewriting
+RewriteEngine On
+RewriteBase /apps/BasicPython
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ passenger_wsgi.py/$1 [QSA,L] 
