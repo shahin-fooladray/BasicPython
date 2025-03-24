@@ -1,45 +1,60 @@
 # Basic Python Todo App
 
-A simple, interactive todo list web application built with Flask.
+A simple Flask-based Todo application that allows users to add and delete tasks.
 
 ## Features
-- Add new tasks
-- Delete existing tasks
-- Clean, modern interface
-- Responsive design
 
-## Setup Instructions
+- Add new todo items
+- Delete existing todo items
+- Clean and responsive UI
+- Persistent storage
 
-1. Install Python 3.x if not already installed
-2. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+## Installation
 
-3. Run the application:
-   ```
-   python app.py
-   ```
+1. Clone the repository:
+```bash
+git clone https://github.com/shahin-fooladray/BasicPython.git
+cd BasicPython
+```
 
-4. Open your web browser and navigate to:
-   ```
-   http://localhost:5000
-   ```
+2. Create a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Run the application:
+```bash
+python app.py
+```
 
 ## Deployment
 
-To deploy this application on a web server:
+This application is configured for deployment on cPanel using Passenger. The deployment process is automated using GitHub Actions.
 
-1. Install the requirements on your server
-2. Use gunicorn to serve the application:
-   ```
-   gunicorn app:app
-   ```
+### Manual Deployment
 
-3. Configure your web server (Apache/Nginx) to proxy requests to gunicorn
+1. Upload all files to your cPanel server
+2. Set up Python application in cPanel
+3. Configure the application to use `passenger_wsgi.py` as the entry point
+4. Restart the application
 
-## Project Structure
-- `app.py` - Main Flask application
-- `templates/` - HTML templates
-- `static/` - CSS and other static files
-- `requirements.txt` - Project dependencies 
+### Automated Deployment
+
+The application uses GitHub Actions for automated deployment. When you push to the main branch, the application will be automatically deployed to your cPanel server.
+
+## Technologies Used
+
+- Python 3.8+
+- Flask
+- HTML/CSS
+- cPanel/Passenger
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 
