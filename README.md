@@ -35,7 +35,40 @@ python app.py
 
 ## Deployment
 
-### Option 1: Deploy on Render (Recommended)
+### Option 1: Deploy on AWS Elastic Beanstalk
+
+1. Install the AWS CLI and EB CLI:
+```bash
+pip install awscli awsebcli
+```
+
+2. Configure AWS credentials:
+```bash
+aws configure
+```
+Enter your AWS Access Key ID, Secret Access Key, and default region.
+
+3. Initialize Elastic Beanstalk:
+```bash
+eb init
+```
+- Select your region
+- Create new application
+- Select Python platform
+- Choose to use CodeCommit (optional)
+- Choose to set up SSH (recommended)
+
+4. Create and deploy the environment:
+```bash
+eb create
+```
+
+5. Open the application:
+```bash
+eb open
+```
+
+### Option 2: Deploy on Render (Recommended for Free Tier)
 
 1. Create a free account on [Render](https://render.com)
 2. Click "New +" and select "Web Service"
@@ -47,7 +80,7 @@ python app.py
    - Start Command: `gunicorn app:app`
 5. Click "Create Web Service"
 
-### Option 2: Deploy on cPanel
+### Option 3: Deploy on cPanel
 
 This application is configured for deployment on cPanel using Passenger. The deployment process is automated using GitHub Actions.
 
@@ -69,6 +102,7 @@ The application uses GitHub Actions for automated deployment. When you push to t
 - HTML/CSS
 - cPanel/Passenger
 - Render (for free hosting)
+- AWS Elastic Beanstalk (for production)
 
 ## License
 
